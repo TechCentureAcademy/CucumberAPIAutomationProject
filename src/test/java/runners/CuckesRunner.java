@@ -15,10 +15,10 @@ import org.junit.runner.RunWith;
 
         },
 
-        tags= {"@customPostCall"},
-        features= "classpath:features",
+        tags= {"@Positive"},
+        features= "classpath:openweather/org/features",
         glue= "classpath:step_definitions",
-        dryRun = false
+        dryRun = true
 )
 
 public class CuckesRunner {
