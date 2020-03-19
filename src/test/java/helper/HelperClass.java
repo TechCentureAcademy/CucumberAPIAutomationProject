@@ -15,13 +15,7 @@ public class HelperClass {
 		
 		FileInputStream fileInput = new FileInputStream(new File(path));
 		
-		return IOUtils.toString(fileInput , "UTF-8");
-		
-		
-		
-		
-		
-		
+		return IOUtils.toString(fileInput , "UTF-8");	
 	}
 	
 	
