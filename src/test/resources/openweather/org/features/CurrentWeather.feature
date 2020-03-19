@@ -6,5 +6,7 @@ Feature: Current Weather functionality (API)
       | city | London |
     Then User is verifying that status code is 200
     And User is verifying following data
-      | name   | description | latitude | longtitude |
-      | London | haze        |    51.51 |      -0.13 |
+      | name        | London                  |
+      | description | light intensity drizzle |
+      | latitude    |                   51.51 |
+      | longtitude  |                   -0.13 |

@@ -1,5 +1,8 @@
 package step_definitions;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 import java.util.Map;
 
 import com.jayway.restassured.response.Response;
@@ -29,15 +32,30 @@ public class CurrentWeather_stepDefinition {
 	}
 
 	@Then("User is verifying following data")
-	public void user_is_verifying_following_data(io.cucumber.datatable.DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-	    //
-	    // For other transformations you can register a DataTableType.
-	    throw new cucumber.api.PendingException();
+	public void user_is_verifying_following_data(Map<String, String> expectedMap) {
+	    Map<Object, Object> responseMap = response.jsonPath().getMap("");
+	    Map<String, Double> coordMap = (Map<String, Double>) responseMap.get("coord");
+	    List<Map<String, Object>> weatherList = (List<Map<String, Object>>) responseMap.get("weather");
+	    String name = (String) responseMap.get("name");
+	    
+	    // asserting name
+	    System.out.println(expectedMap.get("name") + "---" + name);
+	    assertEquals(expectedMap.get("name"), name);
+	    
+	    // asserting description
+	    System.out.println(expectedMap.get("description") + "---" + weatherList.get(0).get("description"));
+	    assertEquals(expectedMap.get("description"), weatherList.get(0).get("description"));
+	    
+	    // asserting latitude
+	    System.out.println(expectedMap.get("latitude") + "---" + coordMap.get("lat"));
+	    assertEquals(Float.valueOf(expectedMap.get("latitude")), coordMap.get("lat"));
+	    
+	    // asserting longtitude
+	    System.out.println(expectedMap.get("longtitude") + "---" + coordMap.get("lon"));
+	    assertEquals(Float.valueOf(expectedMap.get("longtitude")), coordMap.get("lon"));
+	    
+	    
+	    
 	}
 
 }
