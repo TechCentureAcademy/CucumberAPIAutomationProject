@@ -17,6 +17,7 @@ public class DButils {
 	private static Connection connection;
 	private static Statement statement;
 	private static ResultSet resultSet;
+	
 	public static Connection establishConnection() throws SQLException, ClassNotFoundException {
 		
 		Properties properties = new Properties();
