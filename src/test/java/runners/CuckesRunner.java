@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 
         },
 
-        tags= {"@Positive"},
+        tags= {"@db"},
         features= "classpath:openweather/org/features",
         glue= "classpath:step_definitions",
         dryRun = true
