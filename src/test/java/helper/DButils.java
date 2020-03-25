@@ -47,6 +47,7 @@ public class DButils {
 		while(resultSet.next()) {
 			  Map<String,Object> rowMap = new HashMap<>();
 			  for(int col = 1; col <= colCount; col++) {
+				  // change this lane to output only names
 				  rowMap.put(rsMdata.getColumnName(col), resultSet.getObject(col));	  
 			  }
 			  list.add(rowMap);
